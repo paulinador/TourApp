@@ -20,6 +20,9 @@
 		7CC755C92BBFF0CB00C0C183 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755C82BBFF0CB00C0C183 /* APIClient.swift */; };
 		7CC755CB2BBFF0DC00C0C183 /* DefaultAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755CA2BBFF0DC00C0C183 /* DefaultAPIClient.swift */; };
 		7CC755CD2BBFF11100C0C183 /* GeocodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755CC2BBFF11100C0C183 /* GeocodeRepository.swift */; };
+		7CC755CF2BBFF1FA00C0C183 /* ObjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755CE2BBFF1FA00C0C183 /* ObjectResponse.swift */; };
+		7CC755D12BBFF22F00C0C183 /* ObjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755D02BBFF22F00C0C183 /* ObjectRequest.swift */; };
+		7CC755D32BBFF25700C0C183 /* ObjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755D22BBFF25700C0C183 /* ObjectRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		7CC755C82BBFF0CB00C0C183 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		7CC755CA2BBFF0DC00C0C183 /* DefaultAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIClient.swift; sourceTree = "<group>"; };
 		7CC755CC2BBFF11100C0C183 /* GeocodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeRepository.swift; sourceTree = "<group>"; };
+		7CC755CE2BBFF1FA00C0C183 /* ObjectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectResponse.swift; sourceTree = "<group>"; };
+		7CC755D02BBFF22F00C0C183 /* ObjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRequest.swift; sourceTree = "<group>"; };
+		7CC755D22BBFF25700C0C183 /* ObjectRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 			children = (
 				7CC755972BBFEEB300C0C183 /* TourAppApp.swift */,
 				7CC755C62BBFF09D00C0C183 /* GeocodeResponse.swift */,
+				7CC755CE2BBFF1FA00C0C183 /* ObjectResponse.swift */,
 				7CC755C12BBFF01D00C0C183 /* Networking */,
 				7CC755992BBFEEB300C0C183 /* ContentView.swift */,
 				7CC7559B2BBFEEB500C0C183 /* Assets.xcassets */,
@@ -146,9 +153,11 @@
 			children = (
 				7CC755C22BBFF03600C0C183 /* APIRequest.swift */,
 				7CC755C42BBFF08700C0C183 /* GeocodeRequest.swift */,
+				7CC755D02BBFF22F00C0C183 /* ObjectRequest.swift */,
 				7CC755C82BBFF0CB00C0C183 /* APIClient.swift */,
 				7CC755CA2BBFF0DC00C0C183 /* DefaultAPIClient.swift */,
 				7CC755CC2BBFF11100C0C183 /* GeocodeRepository.swift */,
+				7CC755D22BBFF25700C0C183 /* ObjectRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -286,10 +295,13 @@
 				7CC755CD2BBFF11100C0C183 /* GeocodeRepository.swift in Sources */,
 				7CC7559A2BBFEEB300C0C183 /* ContentView.swift in Sources */,
 				7CC755C32BBFF03600C0C183 /* APIRequest.swift in Sources */,
+				7CC755D32BBFF25700C0C183 /* ObjectRepository.swift in Sources */,
 				7CC755C52BBFF08700C0C183 /* GeocodeRequest.swift in Sources */,
 				7CC755C72BBFF09D00C0C183 /* GeocodeResponse.swift in Sources */,
 				7CC755982BBFEEB300C0C183 /* TourAppApp.swift in Sources */,
+				7CC755CF2BBFF1FA00C0C183 /* ObjectResponse.swift in Sources */,
 				7CC755C92BBFF0CB00C0C183 /* APIClient.swift in Sources */,
+				7CC755D12BBFF22F00C0C183 /* ObjectRequest.swift in Sources */,
 				7CC755CB2BBFF0DC00C0C183 /* DefaultAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
