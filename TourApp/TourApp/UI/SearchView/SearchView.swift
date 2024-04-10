@@ -73,7 +73,9 @@ struct SearchView: View {
                         NavigationLink {
                             TourDetailView(viewModel: TourDetailViewModel(
                                 downloader: DetailsRepository(apiClient: DefaultAPIClient()),
-                                xid: item.properties.xid)
+                                xid: item.properties.xid,
+                                favoriteObjectRepository: FavoriteObjectRepository(),
+                                properties: item.properties)
                             )
                         } label: {
                             VStack(alignment: .leading) {

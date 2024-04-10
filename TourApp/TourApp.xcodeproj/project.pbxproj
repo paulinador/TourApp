@@ -34,6 +34,7 @@
 		7CC911A12BC3E728009053A6 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC911A02BC3E728009053A6 /* FavoritesView.swift */; };
 		7CC911A32BC3E732009053A6 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC911A22BC3E732009053A6 /* FavoritesViewModel.swift */; };
 		7CC911A52BC68A37009053A6 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC911A42BC68A37009053A6 /* RatingView.swift */; };
+		7CC911AA2BC6A5D4009053A6 /* FavoriteObjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC911A92BC6A5D4009053A6 /* FavoriteObjectRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		7CC911A02BC3E728009053A6 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		7CC911A22BC3E732009053A6 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		7CC911A42BC68A37009053A6 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		7CC911A92BC6A5D4009053A6 /* FavoriteObjectRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteObjectRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				7CC755CC2BBFF11100C0C183 /* GeocodeRepository.swift */,
 				7CC755D22BBFF25700C0C183 /* ObjectRepository.swift */,
 				7CC755D82BBFF5F100C0C183 /* DetailsRepository.swift */,
+				7CC911A92BC6A5D4009053A6 /* FavoriteObjectRepository.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				7CC755C92BBFF0CB00C0C183 /* APIClient.swift in Sources */,
 				7CC911A32BC3E732009053A6 /* FavoritesViewModel.swift in Sources */,
 				7CC911992BC3E693009053A6 /* SearchView.swift in Sources */,
+				7CC911AA2BC6A5D4009053A6 /* FavoriteObjectRepository.swift in Sources */,
 				7CC755D12BBFF22F00C0C183 /* ObjectRequest.swift in Sources */,
 				7CC9119B2BC3E69D009053A6 /* SearchViewModel.swift in Sources */,
 				7CC911922BC3E574009053A6 /* TourTabViewModel.swift in Sources */,

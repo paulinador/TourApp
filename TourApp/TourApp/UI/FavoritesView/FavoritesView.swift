@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @StateObject var viewModel: FavoritesViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(viewModel.favoriteObjects) { favorite in
+                Text(favorite.name)
+            }
+            .onDelete(perform: viewModel.removeFavoriteObject)
+        }
+        .onAppear {
+            viewModel.loadObjects()
+        }
     }
-}
-
-#Preview {
-    FavoritesView()
 }

@@ -25,6 +25,18 @@ struct TourDetailView: View {
     
     @ViewBuilder private func makeSuccessStateView() -> some View {
         VStack {
+            Button {
+                viewModel.addFavorites()
+            } label: {
+                if viewModel.isFavorite() {
+                    Image(systemName: "heart.fill")
+                } else {
+                    Image(systemName: "heart")
+                }
+            }
+            .buttonStyle(.bordered)
+            .padding(10)
+            
             Text(viewModel.name)
                 .font(.title)
                 .padding()

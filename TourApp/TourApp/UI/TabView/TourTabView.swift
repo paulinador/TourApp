@@ -19,7 +19,7 @@ struct TourTabView: View {
                 }
                 .tag(TabState.search)
             
-            FavoritesView()
+            FavoritesView(viewModel: FavoritesViewModel(favoriteObjectRepository: FavoriteObjectRepository()))
                 .tabItem {
                     Image(systemName: "star")
                     Text("Favorites")

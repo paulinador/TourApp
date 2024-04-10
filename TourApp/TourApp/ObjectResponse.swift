@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ObjectResponse: Codable {
+struct ObjectResponse: Codable, Hashable {
     let features: [Feature]
 }
 
@@ -16,7 +16,11 @@ struct Feature: Codable, Hashable {
     let properties: Properties
 }
 
-struct Properties: Codable, Hashable {
+struct Properties: Codable, Hashable, Identifiable {
+    var id: String {
+        return xid
+    }
+    
     let xid: String
     let name: String
     let rate: Int

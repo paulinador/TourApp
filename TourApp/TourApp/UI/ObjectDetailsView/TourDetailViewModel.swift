@@ -27,10 +27,14 @@ class TourDetailViewModel: ObservableObject {
     @Published var xid: String
     
     private let detailsDownloader: DetailsRepositoryProtocol
+    let properties: Properties
+    private let favoriteObjectRepository: FavoriteObjectRepositoryProtocol
     
-    init(downloader: DetailsRepositoryProtocol, xid: String) {
+    init(downloader: DetailsRepositoryProtocol, xid: String, favoriteObjectRepository: FavoriteObjectRepositoryProtocol, properties: Properties) {
         self.detailsDownloader = downloader
         self.xid = xid
+        self.favoriteObjectRepository = favoriteObjectRepository
+        self.properties = properties
         
         Task {
             await fetchDetails(xid: xid)
@@ -51,5 +55,13 @@ class TourDetailViewModel: ObservableObject {
         } catch {
             state = .error
         }
+    }
+    
+    func addFavorites() {
+        favoriteObjectRepository.addFavoriteObject(object: properties)
+    }
+    
+    func isFavorite() -> Bool {
+        favoriteObjectRepository.isObjectFavorite(object: properties)
     }
 }
