@@ -53,6 +53,7 @@ struct SearchView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         .multilineTextAlignment(.center)
                         .padding(.leading)
+                        .padding(.bottom)
                         
                         Button {
                             Task {
@@ -65,7 +66,7 @@ struct SearchView: View {
                         
                     }
                     
-                    Text(viewModel.name)
+                    Text(viewModel.name.capitalized)
                     Text(viewModel.country)
                     
                     List(viewModel.objectData, id:\.self) { item in
@@ -75,15 +76,17 @@ struct SearchView: View {
                                 xid: item.properties.xid)
                             )
                         } label: {
-                            HStack {
+                            VStack(alignment: .leading) {
                                 Text(item.properties.name)
-                                
-                                Spacer()
-                                
-                                Text("\(item.properties.rate)")
+                                    .padding(.bottom, 5)
+
+                                RatingView(rating: Double(item.properties.rateEdit), maxRating: 3)
                             }
+                            .padding(.top, 5)
+                            .padding(.bottom, 5)
                         }
                     }
+                    .listStyle(.plain)
                 }
             }
         }

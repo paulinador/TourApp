@@ -33,6 +33,7 @@
 		7CC9119F2BC3E6E5009053A6 /* TourDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9119E2BC3E6E5009053A6 /* TourDetailViewModel.swift */; };
 		7CC911A12BC3E728009053A6 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC911A02BC3E728009053A6 /* FavoritesView.swift */; };
 		7CC911A32BC3E732009053A6 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC911A22BC3E732009053A6 /* FavoritesViewModel.swift */; };
+		7CC911A52BC68A37009053A6 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC911A42BC68A37009053A6 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		7CC9119E2BC3E6E5009053A6 /* TourDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetailViewModel.swift; sourceTree = "<group>"; };
 		7CC911A02BC3E728009053A6 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		7CC911A22BC3E732009053A6 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		7CC911A42BC68A37009053A6 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				7CC911942BC3E5A0009053A6 /* SearchView */,
 				7CC911962BC3E5B6009053A6 /* ObjectDetailsView */,
 				7CC911972BC3E5BF009053A6 /* FavoritesView */,
+				7CC911A62BC68A40009053A6 /* Views */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -230,6 +233,14 @@
 				7CC911A22BC3E732009053A6 /* FavoritesViewModel.swift */,
 			);
 			path = FavoritesView;
+			sourceTree = "<group>";
+		};
+		7CC911A62BC68A40009053A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7CC911A42BC68A37009053A6 /* RatingView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +384,7 @@
 				7CC9119F2BC3E6E5009053A6 /* TourDetailViewModel.swift in Sources */,
 				7CC755D52BBFF48100C0C183 /* DetailsResponse.swift in Sources */,
 				7CC755C72BBFF09D00C0C183 /* GeocodeResponse.swift in Sources */,
+				7CC911A52BC68A37009053A6 /* RatingView.swift in Sources */,
 				7CC755D72BBFF4D500C0C183 /* DetailsRequest.swift in Sources */,
 				7CC755982BBFEEB300C0C183 /* TourAppApp.swift in Sources */,
 				7CC755CF2BBFF1FA00C0C183 /* ObjectResponse.swift in Sources */,

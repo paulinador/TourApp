@@ -30,6 +30,18 @@ struct Properties: Codable, Hashable {
     var infoUrl: String {
         "https://www.wikidata.org/wiki/\(info)"
     }
+    
+    var rateEdit: Int {
+        if rate == 7 {
+            return 3
+        } else if rate == 6 {
+            return 2
+        } else if rate == 5 {
+            return 1
+        } else {
+            return rate
+        }
+    }
 }
 
 
