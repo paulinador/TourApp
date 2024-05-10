@@ -11,14 +11,28 @@ struct FavoritesView: View {
     @StateObject var viewModel: FavoritesViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.favoriteObjects) { favorite in
-                Text(favorite.name)
+        NavigationView {
+            List{
+                ForEach(viewModel.favoriteObjects) { favorite in
+                    NavigationLink(destination:
+                                    TourDetailView(viewModel: TourDetailViewModel(
+                                        downloader: DetailsRepository(apiClient: DefaultAPIClient()),
+                                        xid: favorite.xid,
+                                        favoriteObjectRepository: FavoriteObjectRepository(),
+                                        properties: favorite)
+                                    )) {
+                        Text(favorite.name)
+                    }
+                }
+                .onDelete(perform: viewModel.removeFavoriteObject)
             }
-            .onDelete(perform: viewModel.removeFavoriteObject)
+            .navigationTitle("Favorite Objects")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
             viewModel.loadObjects()
         }
+        
     }
 }
+
