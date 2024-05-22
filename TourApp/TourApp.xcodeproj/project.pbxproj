@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7CB3D9402BFC83C600D5F916 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3D93F2BFC83C600D5F916 /* Colors.swift */; };
 		7CC755982BBFEEB300C0C183 /* TourAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755972BBFEEB300C0C183 /* TourAppApp.swift */; };
 		7CC7559A2BBFEEB300C0C183 /* TourTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755992BBFEEB300C0C183 /* TourTabView.swift */; };
 		7CC7559C2BBFEEB500C0C183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC7559B2BBFEEB500C0C183 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7CB3D93F2BFC83C600D5F916 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7CC755942BBFEEB300C0C183 /* TourApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC755972BBFEEB300C0C183 /* TourAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourAppApp.swift; sourceTree = "<group>"; };
 		7CC755992BBFEEB300C0C183 /* TourTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTabView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C47D2CF2BEE209800881829 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				7CC755C62BBFF09D00C0C183 /* GeocodeResponse.swift */,
+				7CC755CE2BBFF1FA00C0C183 /* ObjectResponse.swift */,
+				7CC755D42BBFF48100C0C183 /* DetailsResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		7CB3D9412BFC83CD00D5F916 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7CB3D93F2BFC83C600D5F916 /* Colors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7CC4385C2BFB2F8B004BA2F9 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				7CC755C22BBFF03600C0C183 /* APIRequest.swift */,
+				7CC755C42BBFF08700C0C183 /* GeocodeRequest.swift */,
+				7CC755D02BBFF22F00C0C183 /* ObjectRequest.swift */,
+				7CC755D62BBFF4D500C0C183 /* DetailsRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		7CC4385D2BFB2FA9004BA2F9 /* APIClients */ = {
+			isa = PBXGroup;
+			children = (
+				7CC755C82BBFF0CB00C0C183 /* APIClient.swift */,
+				7CC755CA2BBFF0DC00C0C183 /* DefaultAPIClient.swift */,
+			);
+			path = APIClients;
+			sourceTree = "<group>";
+		};
+		7CC4385E2BFB2FBF004BA2F9 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				7CC755CC2BBFF11100C0C183 /* GeocodeRepository.swift */,
+				7CC755D22BBFF25700C0C183 /* ObjectRepository.swift */,
+				7CC755D82BBFF5F100C0C183 /* DetailsRepository.swift */,
+				7CC911A92BC6A5D4009053A6 /* FavoriteObjectRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		7CC7558B2BBFEEB300C0C183 = {
 			isa = PBXGroup;
 			children = (
@@ -138,9 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				7CC755972BBFEEB300C0C183 /* TourAppApp.swift */,
-				7CC755C62BBFF09D00C0C183 /* GeocodeResponse.swift */,
-				7CC755CE2BBFF1FA00C0C183 /* ObjectResponse.swift */,
-				7CC755D42BBFF48100C0C183 /* DetailsResponse.swift */,
+				7C47D2CF2BEE209800881829 /* Responses */,
 				7CC755C12BBFF01D00C0C183 /* Networking */,
 				7CC911902BC3E544009053A6 /* UI */,
 				7CC7559D2BBFEEB500C0C183 /* Preview Content */,
@@ -176,16 +225,9 @@
 		7CC755C12BBFF01D00C0C183 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				7CC755C22BBFF03600C0C183 /* APIRequest.swift */,
-				7CC755C42BBFF08700C0C183 /* GeocodeRequest.swift */,
-				7CC755D02BBFF22F00C0C183 /* ObjectRequest.swift */,
-				7CC755D62BBFF4D500C0C183 /* DetailsRequest.swift */,
-				7CC755C82BBFF0CB00C0C183 /* APIClient.swift */,
-				7CC755CA2BBFF0DC00C0C183 /* DefaultAPIClient.swift */,
-				7CC755CC2BBFF11100C0C183 /* GeocodeRepository.swift */,
-				7CC755D22BBFF25700C0C183 /* ObjectRepository.swift */,
-				7CC755D82BBFF5F100C0C183 /* DetailsRepository.swift */,
-				7CC911A92BC6A5D4009053A6 /* FavoriteObjectRepository.swift */,
+				7CC4385C2BFB2F8B004BA2F9 /* Requests */,
+				7CC4385D2BFB2FA9004BA2F9 /* APIClients */,
+				7CC4385E2BFB2FBF004BA2F9 /* Repositories */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -198,6 +240,7 @@
 				7CC911962BC3E5B6009053A6 /* ObjectDetailsView */,
 				7CC911972BC3E5BF009053A6 /* FavoritesView */,
 				7CC911A62BC68A40009053A6 /* Views */,
+				7CB3D9412BFC83CD00D5F916 /* Extensions */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -377,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CC911A12BC3E728009053A6 /* FavoritesView.swift in Sources */,
+				7CB3D9402BFC83C600D5F916 /* Colors.swift in Sources */,
 				7CC755CD2BBFF11100C0C183 /* GeocodeRepository.swift in Sources */,
 				7CC7559A2BBFEEB300C0C183 /* TourTabView.swift in Sources */,
 				7CC755D92BBFF5F100C0C183 /* DetailsRepository.swift in Sources */,

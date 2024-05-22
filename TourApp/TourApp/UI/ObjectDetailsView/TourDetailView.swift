@@ -24,50 +24,95 @@ struct TourDetailView: View {
     }
     
     @ViewBuilder private func makeSuccessStateView() -> some View {
-        VStack {
-            Button {
-                viewModel.addFavorites()
-            } label: {
-                if viewModel.isFavorite() {
-                    Image(systemName: "heart.fill")
-                } else {
-                    Image(systemName: "heart")
+        NavigationStack {
+            VStack {
+                makeHeader()
+                
+                HStack {
+                    makeImage()
+                    
+                    VStack {
+                        makeGeoInfo()
+                        
+                        makeButton()
+                    }
+                    .padding(.horizontal)
                 }
+                
+                makeStroke()
+                
+                makeDescription()
+                
+                Spacer()
             }
-            .buttonStyle(.bordered)
-            .padding(10)
-            
-            Text(viewModel.name)
-                .font(.title)
-                .padding()
-            
-            VStack{
-                Text(viewModel.country)
-                    .font(.headline)
-                Text(viewModel.city)
-                    .font(.headline)
-                    .fontWeight(.light)
-            }
-            .padding(.bottom)
-            
-            Text(viewModel.wikiInfo)
-                .font(.caption)
-            
-            Spacer()
-            
-            AsyncImage(url: URL(string: viewModel.imageSource)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.3)
-            } placeholder: {
-                ProgressView()
-            }
-            
-            Spacer()
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.lightBackground)
         }
-        .multilineTextAlignment(.center)
     }
+    
+    @ViewBuilder private func makeStroke() -> some View {
+        Rectangle()
+            .frame(height: 1)
+            .foregroundStyle(.darkGreen)
+            .padding(.vertical)
+    }
+    
+    @ViewBuilder private func makeHeader() -> some View {
+        Text(viewModel.name)
+            .font(.headline)
+            .foregroundStyle(.darkGreen)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding(.bottom, 10)
+    }
+    
+    @ViewBuilder private func makeImage() -> some View {
+        AsyncImage(url: URL(string: viewModel.imageSource)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 150)
+//                        .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.3)
+                .clipShape(Circle())
+        } placeholder: {
+            ProgressView()
+        }
+        .padding(.horizontal)
+    }
+    
+    @ViewBuilder private func makeButton() -> some View {
+        Button {
+            viewModel.addFavorites()
+        } label: {
+            if viewModel.isFavorite() {
+                Image(systemName: "heart.fill")
+            } else {
+                Image(systemName: "heart")
+            }
+        }
+        .buttonStyle(.bordered)
+        .padding(.top, 10)
+    }
+    
+    @ViewBuilder private func makeGeoInfo() -> some View {
+        VStack {
+            Text(viewModel.city)
+                .font(.caption).bold()
+            Text(viewModel.country)
+                .font(.caption)
+        }
+        .foregroundStyle(.darkGreen)
+    }
+    
+    @ViewBuilder private func makeDescription() -> some View {
+        Text(viewModel.wikiInfo)
+            .font(.callout)
+            .foregroundStyle(.darkGreen)
+    }
+    
     
     @ViewBuilder private func makeErrorStateView() -> some View {
         VStack {

@@ -24,6 +24,9 @@ struct RatingView: View {
                     .foregroundColor(.yellow)
             }
         }
+        .frame(width: 100, height: 30)
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 5))
     }
 }
 

@@ -27,8 +27,8 @@ class TourDetailViewModel: ObservableObject {
     @Published var xid: String
     
     private let detailsDownloader: DetailsRepositoryProtocol
-    let properties: Properties
     private let favoriteObjectRepository: FavoriteObjectRepositoryProtocol
+    private let properties: Properties
     
     init(downloader: DetailsRepositoryProtocol, xid: String, favoriteObjectRepository: FavoriteObjectRepositoryProtocol, properties: Properties) {
         self.detailsDownloader = downloader
@@ -48,7 +48,7 @@ class TourDetailViewModel: ObservableObject {
             name = detail.name
             country = detail.address.country
             city = detail.address.city
-            wikiInfo = detail.wikipediaExtracts?.text ?? "N/A"
+            wikiInfo = detail.wikipediaExtracts?.text ?? ""
             imageSource = detail.preview?.source ?? "https://cdn.iconscout.com/icon/premium/png-512-thumb/no-photo-3096410-2576513.png?f=webp&w=512"
             
             state = .success
@@ -58,10 +58,10 @@ class TourDetailViewModel: ObservableObject {
     }
     
     func addFavorites() {
-        favoriteObjectRepository.addFavoriteObject(object: properties)
+        favoriteObjectRepository.addFavoriteObject(objectName: properties)
     }
     
     func isFavorite() -> Bool {
-        favoriteObjectRepository.isObjectFavorite(object: properties)
+        favoriteObjectRepository.isObjectFavorite(objectName: properties)
     }
 }

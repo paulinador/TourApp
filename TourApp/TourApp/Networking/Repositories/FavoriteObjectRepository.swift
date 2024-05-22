@@ -8,24 +8,24 @@
 import Foundation
 
 protocol FavoriteObjectRepositoryProtocol {
-    func addFavoriteObject(object: Properties)
+    func addFavoriteObject(objectName: Properties)
     func getAllObjects() -> [Properties]
-    func deleteObject(object: Properties)
-    func isObjectFavorite(object: Properties) -> Bool
+    func deleteObject(objectName: Properties)
+    func isObjectFavorite(objectName: Properties) -> Bool
 }
 
 class FavoriteObjectRepository: FavoriteObjectRepositoryProtocol {
     private let userDefaults: UserDefaults
-    private var allObjects: Set<ObjectResponse> = []
+    private var allObjects: Set<DetailsResponse> = []
     private let key = "Favorite"
     
     init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
     }
     
-    func addFavoriteObject(object: Properties) {
+    func addFavoriteObject(objectName: Properties) {
         var objectsSet = Set(getAllObjects())
-        objectsSet.insert(object)
+        objectsSet.insert(objectName)
         
         if let encoded = try? JSONEncoder().encode(objectsSet) {
             userDefaults.set(encoded, forKey: key)
@@ -40,9 +40,9 @@ class FavoriteObjectRepository: FavoriteObjectRepositoryProtocol {
         }
     }
     
-    func deleteObject(object: Properties) {
+    func deleteObject(objectName: Properties) {
         var objectsSet = Set(getAllObjects())
-        objectsSet.remove(object)
+        objectsSet.remove(objectName)
         
         if let encoded = try? JSONEncoder().encode(objectsSet) {
             userDefaults.set(encoded, forKey: key)
@@ -50,7 +50,7 @@ class FavoriteObjectRepository: FavoriteObjectRepositoryProtocol {
         }
     }
     
-    func isObjectFavorite(object: Properties) -> Bool {
-        return getAllObjects().contains(object)
+    func isObjectFavorite(objectName: Properties) -> Bool {
+        return getAllObjects().contains(objectName)
     }
 }

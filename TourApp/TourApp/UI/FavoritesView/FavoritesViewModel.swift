@@ -7,13 +7,27 @@
 
 import Foundation
 
+//struct FavoritePlace: Identifiable, Hashable {
+//    var id: String
+//    let name: String
+//    let city: String
+//}
+//
+//struct SectionData: Identifiable {
+//    let id = UUID()
+//    let title: String
+//    var items: [FavoritePlace]
+//}
+
 class FavoritesViewModel: ObservableObject {
     @Published var favoriteObjects = [Properties]()
     
     private let favoriteObjectRepository: FavoriteObjectRepositoryProtocol
+    private let detailsRepository: DetailsRepositoryProtocol
     
-    init(favoriteObjectRepository: FavoriteObjectRepositoryProtocol) {
+    init(favoriteObjectRepository: FavoriteObjectRepositoryProtocol, detailsRepository: DetailsRepositoryProtocol) {
         self.favoriteObjectRepository = favoriteObjectRepository
+        self.detailsRepository = detailsRepository
     }
     
     func loadObjects() {
@@ -25,7 +39,7 @@ class FavoritesViewModel: ObservableObject {
         
         offsets.forEach { index in
             let objectToDelete = favoriteItems[index]
-            favoriteObjectRepository.deleteObject(object: objectToDelete)
+            favoriteObjectRepository.deleteObject(objectName: objectToDelete)
             favoriteObjects.remove(atOffsets: offsets)
         }
     }
