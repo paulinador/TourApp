@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailsResponse: Codable {
+struct DetailsResponse: Codable, Hashable {
     var xid: String
     let name: String
     let address: Address
@@ -28,7 +28,7 @@ struct DetailsResponse: Codable {
     }
 }
 
-struct Address: Codable {
+struct Address: Codable, Hashable {
     let city: String
     let road: String?
     let suburb: String?
@@ -37,12 +37,12 @@ struct Address: Codable {
     let houseNumber: String?
 }
 
-struct Preview: Codable {
+struct Preview: Codable, Hashable {
     let source: String?
     let height: Int?
     let width: Int?
 }
 
-struct WikipediaExtracts: Codable {
+struct WikipediaExtracts: Codable, Hashable {
     let text: String
 }
