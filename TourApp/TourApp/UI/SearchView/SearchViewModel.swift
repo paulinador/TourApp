@@ -23,6 +23,7 @@ class SearchViewModel: ObservableObject {
     @Published var rate = 0
 
     @Published var objectData: [Feature] = []
+    @Published var originalObjectData: [Feature] = []
     
     private let geocodeDownloader: GeocodeRepositoryProtocol
     private let objectDownloader: ObjectRepositoryProtocol

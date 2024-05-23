@@ -19,6 +19,7 @@ struct ObjectRequest: APIRequest {
         [URLQueryItem(name: "radius", value: "2000"),
          URLQueryItem(name: "lon", value: "\(lon)"),
          URLQueryItem(name: "lat", value: "\(lat)"),
+         URLQueryItem(name: "rate", value: "1"),
          URLQueryItem(name: "apikey", value: "5ae2e3f221c38a28845f05b643aef45e9b08dee93b3d51ec44afe09a")
         ]
     }

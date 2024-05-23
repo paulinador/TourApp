@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @StateObject var viewModel: SearchViewModel
+    @State private var isSorted = false
     
     var body: some View {
         NavigationView {
@@ -21,10 +22,10 @@ struct SearchView: View {
                 makeErrorStateView()
             }
         }
-//        .searchable(text: $viewModel.searchName)
-//        .onSubmit(of: .search) {
-//            viewModel.onSearchTap()
-//        }
+        //        .searchable(text: $viewModel.searchName)
+        //        .onSubmit(of: .search) {
+        //            viewModel.onSearchTap()
+        //        }
     }
     
     @ViewBuilder private func makeSuccessStateView() -> some View {
@@ -35,6 +36,8 @@ struct SearchView: View {
                 makeSearchField()
                 
                 makeGeoInfo()
+                
+                makeSortingButton()
                 
                 ScrollView {
                     LazyVStack {
@@ -54,7 +57,7 @@ struct SearchView: View {
                                         .foregroundStyle(.darkGreen)
                                     
                                     RatingView(rating: Double(item.properties.rateEdit), maxRating: 3)
-                                        
+                                    
                                 }
                                 .padding(.vertical)
                                 .frame(width: UIScreen.main.bounds.width * 0.85)
@@ -67,8 +70,8 @@ struct SearchView: View {
                 }
                 .scrollIndicators(.hidden)
             }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.darkGreen)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.darkGreen)
             
         }
     }
@@ -119,6 +122,34 @@ struct SearchView: View {
             .font(.title2)
             .fontWeight(.light)
             .foregroundStyle(.lightGreen)
+    }
+    
+    @ViewBuilder private func makeSortingButton() -> some View {
+        if !isSorted {
+            Button(action: {
+                if !isSorted {
+                    viewModel.originalObjectData = viewModel.objectData
+                    
+                    viewModel.objectData.sort(by: >)
+                    isSorted = true
+                }
+            }) {
+                Text("Top Rated \(Image(systemName: "star.fill"))")
+                    .foregroundStyle(.yellow)
+                    .font(.subheadline)
+            }
+        } else {
+            Button(action: {
+                if isSorted {
+                    viewModel.objectData = viewModel.originalObjectData
+                    isSorted = false
+                }
+            }) {
+                Text("Cancel")
+                    .foregroundStyle(.red)
+                    .font(.subheadline)
+            }
+        }
     }
     
     @ViewBuilder private func makeErrorStateView() -> some View {

@@ -11,12 +11,16 @@ struct ObjectResponse: Codable, Hashable {
     let features: [Feature]
 }
 
-struct Feature: Codable, Hashable {
+struct Feature: Codable, Hashable, Comparable {
     let id: String
     let properties: Properties
+    
+    static func < (lhs: Feature, rhs: Feature) -> Bool {
+        lhs.properties < rhs.properties
+    }
 }
 
-struct Properties: Codable, Hashable, Identifiable {
+struct Properties: Codable, Hashable, Identifiable, Comparable {
     var id: String {
         return xid
     }
@@ -45,6 +49,10 @@ struct Properties: Codable, Hashable, Identifiable {
         } else {
             return rate
         }
+    }
+    
+    static func < (lhs: Properties, rhs: Properties) -> Bool {
+        lhs.rateEdit < rhs.rateEdit
     }
 }
 
