@@ -7,19 +7,7 @@
 
 import Foundation
 
-//struct FavoritePlace: Identifiable, Hashable {
-//    var id: String
-//    let name: String
-//    let city: String
-//}
-//
-//struct SectionData: Identifiable {
-//    let id = UUID()
-//    let title: String
-//    var items: [FavoritePlace]
-//}
-
-class FavoritesViewModel: ObservableObject {
+final class FavoritesViewModel: ObservableObject {
     @Published var favoriteObjects = [Properties]()
     
     private let favoriteObjectRepository: FavoriteObjectRepositoryProtocol

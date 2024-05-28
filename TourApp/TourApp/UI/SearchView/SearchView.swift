@@ -22,10 +22,9 @@ struct SearchView: View {
                 makeErrorStateView()
             }
         }
-        //        .searchable(text: $viewModel.searchName)
-        //        .onSubmit(of: .search) {
-        //            viewModel.onSearchTap()
-        //        }
+        .task {
+            await viewModel.fetchData()
+        }
     }
     
     @ViewBuilder private func makeSuccessStateView() -> some View {
@@ -39,40 +38,9 @@ struct SearchView: View {
                 
                 makeSortingButton()
                 
-                ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.objectData, id: \.self) { item in
-                            NavigationLink {
-                                TourDetailView(viewModel: TourDetailViewModel(
-                                    downloader: DetailsRepository(apiClient: DefaultAPIClient()),
-                                    xid: item.properties.xid,
-                                    favoriteObjectRepository: FavoriteObjectRepository(),
-                                    properties: item.properties)
-                                )
-                            } label: {
-                                VStack(alignment: .center) {
-                                    Text(item.properties.name)
-                                        .padding(.bottom, 5)
-                                        .font(.callout)
-                                        .foregroundStyle(.darkGreen)
-                                    
-                                    RatingView(rating: Double(item.properties.rateEdit), maxRating: 3)
-                                    
-                                }
-                                .padding(.vertical)
-                                .frame(width: UIScreen.main.bounds.width * 0.85)
-                                .padding(.horizontal)
-                                .background(.ultraThinMaterial)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                            }
-                        }
-                    }
-                }
-                .scrollIndicators(.hidden)
+                makeList()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.darkGreen)
-            
         }
     }
     
@@ -85,7 +53,40 @@ struct SearchView: View {
         .foregroundStyle(.lightGreen)
         .padding()
     }
-    
+
+    @ViewBuilder private func makeList() -> some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(viewModel.objectData, id: \.self) { item in
+                    NavigationLink {
+                        TourDetailView(viewModel: TourDetailViewModel(
+                            downloader: DetailsRepository(apiClient: DefaultAPIClient()),
+                            xid: item.properties.xid,
+                            favoriteObjectRepository: FavoriteObjectRepository(),
+                            properties: item.properties)
+                        )
+                    } label: {
+                        VStack(alignment: .center) {
+                            Text(item.properties.name)
+                                .padding(.bottom, 5)
+                                .font(.callout)
+                                .foregroundStyle(.darkGreen)
+
+                            RatingView(rating: Double(item.properties.rateEdit), maxRating: 3)
+
+                        }
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width * 0.85)
+                        .padding(.horizontal)
+                        .background(.ultraThinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                }
+            }
+        }
+        .scrollIndicators(.hidden)
+    }
+
     @ViewBuilder private func makeSearchField() -> some View {
         HStack(alignment: .center) {
             TextField("Enter a city name", text: $viewModel.searchName) {
@@ -128,9 +129,7 @@ struct SearchView: View {
         if !isSorted {
             Button(action: {
                 if !isSorted {
-                    viewModel.originalObjectData = viewModel.objectData
-                    
-                    viewModel.objectData.sort(by: >)
+                    viewModel.sortByTopRating()
                     isSorted = true
                 }
             }) {
@@ -141,7 +140,7 @@ struct SearchView: View {
         } else {
             Button(action: {
                 if isSorted {
-                    viewModel.objectData = viewModel.originalObjectData
+                    viewModel.sortByDefault()
                     isSorted = false
                 }
             }) {
@@ -164,5 +163,6 @@ struct SearchView: View {
                 }
             }
         }
+        .background(.darkGreen)
     }
 }

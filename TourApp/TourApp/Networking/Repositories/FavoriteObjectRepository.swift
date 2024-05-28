@@ -5,6 +5,14 @@
 //  Created by Paulina Dorożko on 10/04/2024.
 //
 
+struct Fav {
+    let xid: String
+    let cityName: String
+    let details: String
+}
+
+
+
 import Foundation
 
 protocol FavoriteObjectRepositoryProtocol {
@@ -16,6 +24,7 @@ protocol FavoriteObjectRepositoryProtocol {
 
 class FavoriteObjectRepository: FavoriteObjectRepositoryProtocol {
     private let userDefaults: UserDefaults
+
     private var allObjects: Set<DetailsResponse> = []
     private let key = "Favorite"
     
@@ -46,7 +55,6 @@ class FavoriteObjectRepository: FavoriteObjectRepositoryProtocol {
         
         if let encoded = try? JSONEncoder().encode(objectsSet) {
             userDefaults.set(encoded, forKey: key)
-            
         }
     }
     

@@ -37,7 +37,7 @@ struct FavoritesView: View {
 //                }
             }
             .scrollContentBackground(.hidden)
-            .background(Color(red: 200 / 255, green: 213 / 255, blue: 185 / 255).edgesIgnoringSafeArea(.all))
+            .background(Color(red: 200 / 255, green: 213 / 255, blue: 185 / 255))
             .navigationTitle("Favorite Objects")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {

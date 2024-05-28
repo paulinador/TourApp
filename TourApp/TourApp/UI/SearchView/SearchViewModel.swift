@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchViewModel: ObservableObject {
+final class SearchViewModel: ObservableObject {
     enum State {
         case loading
         case success
@@ -18,35 +18,31 @@ class SearchViewModel: ObservableObject {
     @Published var searchName = ""
     @Published var name = ""
     @Published var country = ""
-    @Published var lat = 0.0
-    @Published var lon = 0.0
+
     @Published var rate = 0
 
     @Published var objectData: [Feature] = []
-    @Published var originalObjectData: [Feature] = []
-    
+    private var originalObjectData: [Feature] = []
+
+    private var response: GeocodeResponse?
+
     private let geocodeDownloader: GeocodeRepositoryProtocol
     private let objectDownloader: ObjectRepositoryProtocol
     
     init(gdownloader: GeocodeRepositoryProtocol, odownloader: ObjectRepositoryProtocol) {
         self.geocodeDownloader = gdownloader
         self.objectDownloader = odownloader
-        
-        Task {
-            await fetchData()
-        }
     }
     
     @MainActor
-    func fetchData(cityName: String = "London", longitude: Double = -0.125, latitude: Double = 51.508) async {
+    func fetchData(cityName: String = "London") async {
         do {
             let result = try await geocodeDownloader.getCurrentGeocode(cityName: cityName)
+            response = result
             name = result.name
             country = result.country
-            lat = result.lat
-            lon = result.lon
             
-            let object = try await objectDownloader.getAllObjects(longitude: lon, latitude: lat)
+            let object = try await objectDownloader.getAllObjects(longitude: result.lon, latitude: result.lat)
             objectData = object
             
             state = .success
@@ -56,8 +52,17 @@ class SearchViewModel: ObservableObject {
     }
   
     func searchCity() async {
-        if let city = self.searchName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-            await fetchData(cityName: city, longitude: lon, latitude: lat)
+        if let city = searchName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            await fetchData(cityName: city)
         }
+    }
+
+    func sortByTopRating() {
+        originalObjectData = objectData
+        objectData.sort(by: { $0.properties.rateEdit > $1.properties.rateEdit })
+    }
+
+    func sortByDefault() {
+        objectData = originalObjectData
     }
 }

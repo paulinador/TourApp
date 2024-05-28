@@ -19,11 +19,6 @@ class GeocodeRepository: GeocodeRepositoryProtocol {
     }
     
     func getCurrentGeocode(cityName: String) async throws -> GeocodeResponse {
-        do {
-            let geocode = try await apiClient.perform(request: GeocodeRequest(cityName: cityName))
-            return geocode
-        } catch {
-            throw error
-        }
+        try await apiClient.perform(request: GeocodeRequest(cityName: cityName))
     }
 }

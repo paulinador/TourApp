@@ -11,7 +11,6 @@ struct TourDetailView: View {
     @StateObject var viewModel: TourDetailViewModel
     
     var body: some View {
-        NavigationView {
             switch viewModel.state {
             case .loading:
                 ProgressView()
@@ -19,7 +18,6 @@ struct TourDetailView: View {
                 makeSuccessStateView()
             case.error:
                 makeErrorStateView()
-            }
         }
     }
     
