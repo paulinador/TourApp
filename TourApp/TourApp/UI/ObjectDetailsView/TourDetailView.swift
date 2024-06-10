@@ -11,6 +11,7 @@ struct TourDetailView: View {
     @StateObject var viewModel: TourDetailViewModel
     
     var body: some View {
+        NavigationView {
             switch viewModel.state {
             case .loading:
                 ProgressView()
@@ -18,6 +19,10 @@ struct TourDetailView: View {
                 makeSuccessStateView()
             case.error:
                 makeErrorStateView()
+            }
+        }
+        .task {
+            await viewModel.fetchDetails(xid: viewModel.xid)
         }
     }
     
@@ -123,7 +128,11 @@ struct TourDetailView: View {
                     await viewModel.fetchDetails(xid: viewModel.xid)
                 }
             }
+            .buttonStyle(.bordered)
         }
+        .foregroundStyle(.darkGreen)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.lightBackground)
     }
 }
 

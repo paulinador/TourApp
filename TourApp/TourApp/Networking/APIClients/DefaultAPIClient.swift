@@ -8,7 +8,6 @@
 import Foundation
 
 class DefaultAPIClient: APIClient {
-
     private let session: URLSession
 
     init(session: URLSession = .shared) {

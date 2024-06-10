@@ -12,5 +12,11 @@ enum TabState: Int, CaseIterable {
 }
 
 final class TourTabViewModel: ObservableObject {
+    let viewModelFactory: ViewModelFactoryProtocol
+    
+    init(viewModelFactory: ViewModelFactoryProtocol) {
+        self.viewModelFactory = viewModelFactory
+    }
+    
     @Published var selectedTab: TabState = .search
 }

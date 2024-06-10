@@ -12,22 +12,20 @@ struct TourTabView: View {
     
     var body: some View {
         TabView(selection: $viewModel.selectedTab) {
-            SearchView(viewModel: SearchViewModel(gdownloader: GeocodeRepository(apiClient: DefaultAPIClient()),
-                                                  odownloader: ObjectRepository(apiClient: DefaultAPIClient())))
+            SearchView(viewModel: viewModel.viewModelFactory.makeSearchViewModel())
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
                 .tag(TabState.search)
             
-            FavoritesView(viewModel: FavoritesViewModel(favoriteObjectRepository: FavoriteObjectRepository(),
-                                                        detailsRepository: DetailsRepository(apiClient: DefaultAPIClient())))
+            FavoritesView(viewModel: viewModel.viewModelFactory.makeFavoritesViewModel())
                 .tabItem {
                     Image(systemName: "star")
                     Text("Favorites")
                 }
                 .tag(TabState.favorite)
         }
-        .tint(Color(red: 19 / 255, green: 42 / 255, blue: 19 / 255))
+        .tint(.darkGreen)
     }
 }

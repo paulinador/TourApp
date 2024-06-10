@@ -19,12 +19,7 @@ class ObjectRepository:ObjectRepositoryProtocol {
     }
     
     func getAllObjects(longitude: Double, latitude: Double) async throws -> [Feature] {
-        do {
-            let object = try await apiClient.perform(request: ObjectRequest(lon: longitude, lat: latitude))
-            return object.features
-        } catch {
-            throw error
-        }
+        try await apiClient.perform(request: ObjectRequest(lon: longitude, lat: latitude)).features
     }
     
     

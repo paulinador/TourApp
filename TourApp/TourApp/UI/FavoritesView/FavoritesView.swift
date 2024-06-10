@@ -13,8 +13,6 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             List {
-//                ForEach(viewModel.favoriteObjects) { city in
-//                    Section(header: Text(city.title)) {
                 ForEach(viewModel.favoriteObjects) { favorite in
                             NavigationLink(destination:
                                             TourDetailView(viewModel: TourDetailViewModel(
@@ -33,11 +31,9 @@ struct FavoritesView: View {
                                     .padding(2))
                         }
                         .onDelete(perform: viewModel.removeFavoriteObject)
-//                    }
-//                }
             }
             .scrollContentBackground(.hidden)
-            .background(Color(red: 200 / 255, green: 213 / 255, blue: 185 / 255))
+            .background(.lightBackground)
             .navigationTitle("Favorite Objects")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {

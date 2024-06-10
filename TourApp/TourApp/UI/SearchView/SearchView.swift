@@ -22,26 +22,24 @@ struct SearchView: View {
                 makeErrorStateView()
             }
         }
-        .task {
-            await viewModel.fetchData()
+        .onSubmit {
+            viewModel.searchCity()
         }
     }
     
     @ViewBuilder private func makeSuccessStateView() -> some View {
-        NavigationStack {
-            VStack {
-                makeHeader()
-                
-                makeSearchField()
-                
-                makeGeoInfo()
-                
-                makeSortingButton()
-                
-                makeList()
-            }
-            .background(.darkGreen)
+        VStack {
+            makeHeader()
+            
+            makeSearchField()
+            
+            makeGeoInfo()
+            
+            makeSortingButton()
+            
+            makeList()
         }
+        .background(.darkGreen)
     }
     
     @ViewBuilder private func makeHeader() -> some View {
@@ -63,8 +61,7 @@ struct SearchView: View {
                             downloader: DetailsRepository(apiClient: DefaultAPIClient()),
                             xid: item.properties.xid,
                             favoriteObjectRepository: FavoriteObjectRepository(),
-                            properties: item.properties)
-                        )
+                            properties: item.properties))
                     } label: {
                         VStack(alignment: .center) {
                             Text(item.properties.name)
@@ -73,7 +70,6 @@ struct SearchView: View {
                                 .foregroundStyle(.darkGreen)
 
                             RatingView(rating: Double(item.properties.rateEdit), maxRating: 3)
-
                         }
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width * 0.85)
@@ -90,9 +86,7 @@ struct SearchView: View {
     @ViewBuilder private func makeSearchField() -> some View {
         HStack(alignment: .center) {
             TextField("Enter a city name", text: $viewModel.searchName) {
-                Task {
-                    await viewModel.searchCity()
-                }
+                viewModel.searchCity()
             }
             .frame(maxWidth: .infinity, maxHeight: 30)
             .background(.thinMaterial)
@@ -102,17 +96,16 @@ struct SearchView: View {
             .padding(.bottom)
             
             Button {
-                Task {
-                    await viewModel.searchCity()
-                }
+                viewModel.searchCity()
             } label: {
                 Image(systemName: "magnifyingglass")
-                    .foregroundStyle(.lightGreen)
+                    .foregroundStyle(viewModel.hasValidCityName ? .lightGreen : .gray.opacity(0.1))
                     .frame(width: 36, height: 36)
                     .background(.ultraThinMaterial)
                     .clipShape(Circle())
                     .padding(.bottom)
             }
+            .disabled(viewModel.hasValidCityName == false)
             .padding(.trailing)
         }
     }
@@ -126,29 +119,31 @@ struct SearchView: View {
     }
     
     @ViewBuilder private func makeSortingButton() -> some View {
-        if !isSorted {
-            Button(action: {
-                if !isSorted {
-                    viewModel.sortByTopRating()
-                    isSorted = true
-                }
-            }) {
-                Text("Top Rated \(Image(systemName: "star.fill"))")
+        Button {
+            if isSorted {
+                viewModel.sortByDefault()
+                isSorted = false
+            } else {
+                viewModel.sortByTopRating()
+                isSorted = true
+            }
+        } label: {
+            if isSorted {
+                Text("\(Image(systemName: "trash.fill")) Cancel")
+                    .foregroundStyle(.darkRed)
+                    .font(.subheadline)
+            } else {
+                Text("\(Image(systemName: "line.3.horizontal.decrease.circle.fill")) Sort by Top Rate")
                     .foregroundStyle(.yellow)
                     .font(.subheadline)
             }
-        } else {
-            Button(action: {
-                if isSorted {
-                    viewModel.sortByDefault()
-                    isSorted = false
-                }
-            }) {
-                Text("Cancel")
-                    .foregroundStyle(.red)
-                    .font(.subheadline)
-            }
         }
+        .padding(.vertical)
+        .frame(width: isSorted ? 100 : 150, height: 24)
+        .background(.ultraThinMaterial)
+        .clipShape(
+            RoundedRectangle(cornerRadius: 5))
+        .padding(.bottom)
     }
     
     @ViewBuilder private func makeErrorStateView() -> some View {
@@ -162,7 +157,10 @@ struct SearchView: View {
                     await viewModel.fetchData()
                 }
             }
+            .buttonStyle(.bordered)
         }
-        .background(.darkGreen)
+        .foregroundStyle(.darkGreen)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.lightBackground)
     }
 }

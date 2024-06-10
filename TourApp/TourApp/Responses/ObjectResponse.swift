@@ -40,14 +40,14 @@ struct Properties: Codable, Hashable, Identifiable {
     }
     
     var rateEdit: Int {
-        if rate == 7 {
-            return 3
-        } else if rate == 6 {
-            return 2
-        } else if rate == 5 {
-            return 1
-        } else {
-            return rate
+        switch rate {
+        case 7: return 3
+        case 6: return 2
+        case 5: return 1
+        default: return rate
         }
     }
+    
 }
+
+

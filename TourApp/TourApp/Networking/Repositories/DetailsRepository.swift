@@ -19,11 +19,6 @@ class DetailsRepository: DetailsRepositoryProtocol {
     }
     
     func getObjectDetails(xid: String) async throws -> DetailsResponse {
-        do {
-            let detail = try await apiClient.perform(request: DetailsRequest(xid: xid))
-            return detail
-        } catch {
-            throw error
-        }
+       try await apiClient.perform(request: DetailsRequest(xid: xid))
     }
 }

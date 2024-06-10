@@ -18,11 +18,16 @@ final class SearchViewModel: ObservableObject {
     @Published var searchName = ""
     @Published var name = ""
     @Published var country = ""
-
-    @Published var rate = 0
-
+    
     @Published var objectData: [Feature] = []
     private var originalObjectData: [Feature] = []
+    
+    var hasValidCityName: Bool {
+         if searchName.trimmingCharacters(in: .whitespaces).isEmpty {
+            return false
+        }
+        return true
+    }
 
     private var response: GeocodeResponse?
 
@@ -32,6 +37,10 @@ final class SearchViewModel: ObservableObject {
     init(gdownloader: GeocodeRepositoryProtocol, odownloader: ObjectRepositoryProtocol) {
         self.geocodeDownloader = gdownloader
         self.objectDownloader = odownloader
+        
+        Task {
+            await fetchData()
+        }
     }
     
     @MainActor
@@ -51,9 +60,11 @@ final class SearchViewModel: ObservableObject {
         }
     }
   
-    func searchCity() async {
-        if let city = searchName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-            await fetchData(cityName: city)
+    func searchCity() {
+        Task {
+            if let city = searchName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+                await fetchData(cityName: city)
+            }
         }
     }
 

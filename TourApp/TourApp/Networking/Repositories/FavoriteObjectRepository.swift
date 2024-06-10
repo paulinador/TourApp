@@ -5,14 +5,6 @@
 //  Created by Paulina Dorożko on 10/04/2024.
 //
 
-struct Fav {
-    let xid: String
-    let cityName: String
-    let details: String
-}
-
-
-
 import Foundation
 
 protocol FavoriteObjectRepositoryProtocol {

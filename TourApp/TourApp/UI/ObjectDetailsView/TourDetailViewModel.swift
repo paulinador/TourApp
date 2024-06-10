@@ -35,10 +35,6 @@ class TourDetailViewModel: ObservableObject {
         self.xid = xid
         self.favoriteObjectRepository = favoriteObjectRepository
         self.properties = properties
-        
-        Task {
-            await fetchDetails(xid: xid)
-        }
     }
     
     @MainActor
