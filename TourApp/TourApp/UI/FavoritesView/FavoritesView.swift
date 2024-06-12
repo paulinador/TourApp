@@ -16,9 +16,7 @@ struct FavoritesView: View {
                 ForEach(viewModel.favoriteObjects) { favorite in
                             NavigationLink(destination:
                                             TourDetailView(viewModel: TourDetailViewModel(
-                                                downloader: DetailsRepository(apiClient: DefaultAPIClient()),
                                                 xid: favorite.id,
-                                                favoriteObjectRepository: FavoriteObjectRepository(),
                                                 properties: favorite)
                                             ))
                             {

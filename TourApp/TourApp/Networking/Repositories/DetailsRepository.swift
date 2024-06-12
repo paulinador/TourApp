@@ -6,17 +6,14 @@
 //
 
 import Foundation
+import Resolver
 
 protocol DetailsRepositoryProtocol {
     func getObjectDetails(xid: String) async throws -> DetailsResponse
 }
 
 class DetailsRepository: DetailsRepositoryProtocol {
-    private let apiClient: APIClient
-    
-    init(apiClient: APIClient) {
-        self.apiClient = apiClient
-    }
+    @Injected private var apiClient: APIClient
     
     func getObjectDetails(xid: String) async throws -> DetailsResponse {
        try await apiClient.perform(request: DetailsRequest(xid: xid))

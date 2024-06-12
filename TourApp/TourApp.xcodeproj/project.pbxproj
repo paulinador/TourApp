@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		7CB3D9402BFC83C600D5F916 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3D93F2BFC83C600D5F916 /* Colors.swift */; };
 		7CB52B3A2C073E1F00C3384D /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB52B392C073E1F00C3384D /* ViewModelFactory.swift */; };
-		7CB7A49E2C11D9C30050B7B9 /* ApplicationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7A49D2C11D9C30050B7B9 /* ApplicationDependencies.swift */; };
+		7CC305F52C1995D700B10941 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 7CC305F42C1995D700B10941 /* Resolver */; };
+		7CC305F72C19969000B10941 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC305F62C19969000B10941 /* Resolver.swift */; };
 		7CC755982BBFEEB300C0C183 /* TourAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755972BBFEEB300C0C183 /* TourAppApp.swift */; };
 		7CC7559A2BBFEEB300C0C183 /* TourTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755992BBFEEB300C0C183 /* TourTabView.swift */; };
 		7CC7559C2BBFEEB500C0C183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC7559B2BBFEEB500C0C183 /* Assets.xcassets */; };
@@ -60,7 +61,7 @@
 /* Begin PBXFileReference section */
 		7CB3D93F2BFC83C600D5F916 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7CB52B392C073E1F00C3384D /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
-		7CB7A49D2C11D9C30050B7B9 /* ApplicationDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDependencies.swift; sourceTree = "<group>"; };
+		7CC305F62C19969000B10941 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		7CC755942BBFEEB300C0C183 /* TourApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC755972BBFEEB300C0C183 /* TourAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourAppApp.swift; sourceTree = "<group>"; };
 		7CC755992BBFEEB300C0C183 /* TourTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTabView.swift; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC305F52C1995D700B10941 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +150,7 @@
 		7CB7A49C2C11D9A10050B7B9 /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
-				7CB7A49D2C11D9C30050B7B9 /* ApplicationDependencies.swift */,
+				7CC305F62C19969000B10941 /* Resolver.swift */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";
@@ -327,6 +329,9 @@
 			dependencies = (
 			);
 			name = TourApp;
+			packageProductDependencies = (
+				7CC305F42C1995D700B10941 /* Resolver */,
+			);
 			productName = TourApp;
 			productReference = 7CC755942BBFEEB300C0C183 /* TourApp.app */;
 			productType = "com.apple.product-type.application";
@@ -399,6 +404,9 @@
 				Base,
 			);
 			mainGroup = 7CC7558B2BBFEEB300C0C183;
+			packageReferences = (
+				7CC305F32C1995D700B10941 /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 7CC755952BBFEEB300C0C183 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -444,6 +452,7 @@
 				7CC911A12BC3E728009053A6 /* FavoritesView.swift in Sources */,
 				7CB3D9402BFC83C600D5F916 /* Colors.swift in Sources */,
 				7CC755CD2BBFF11100C0C183 /* GeocodeRepository.swift in Sources */,
+				7CC305F72C19969000B10941 /* Resolver.swift in Sources */,
 				7CB52B3A2C073E1F00C3384D /* ViewModelFactory.swift in Sources */,
 				7CC7559A2BBFEEB300C0C183 /* TourTabView.swift in Sources */,
 				7CC755D92BBFF5F100C0C183 /* DetailsRepository.swift in Sources */,
@@ -456,7 +465,6 @@
 				7CC755C72BBFF09D00C0C183 /* GeocodeResponse.swift in Sources */,
 				7CC911A52BC68A37009053A6 /* RatingView.swift in Sources */,
 				7CC755D72BBFF4D500C0C183 /* DetailsRequest.swift in Sources */,
-				7CB7A49E2C11D9C30050B7B9 /* ApplicationDependencies.swift in Sources */,
 				7CC755982BBFEEB300C0C183 /* TourAppApp.swift in Sources */,
 				7CC755CF2BBFF1FA00C0C183 /* ObjectResponse.swift in Sources */,
 				7CC755C92BBFF0CB00C0C183 /* APIClient.swift in Sources */,
@@ -790,6 +798,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7CC305F32C1995D700B10941 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7CC305F42C1995D700B10941 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CC305F32C1995D700B10941 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7CC7558C2BBFEEB300C0C183 /* Project object */;
 }

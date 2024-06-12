@@ -6,17 +6,14 @@
 //
 
 import Foundation
+import Resolver
 
 protocol GeocodeRepositoryProtocol {
     func getCurrentGeocode(cityName: String) async throws -> GeocodeResponse
 }
 
 class GeocodeRepository: GeocodeRepositoryProtocol {
-    private let apiClient: APIClient
-    
-    init(apiClient: APIClient) {
-        self.apiClient = apiClient
-    }
+    @Injected private var apiClient: APIClient
     
     func getCurrentGeocode(cityName: String) async throws -> GeocodeResponse {
         try await apiClient.perform(request: GeocodeRequest(cityName: cityName))

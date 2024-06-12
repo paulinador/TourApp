@@ -6,17 +6,13 @@
 //
 
 import Foundation
+import Resolver
 
 final class FavoritesViewModel: ObservableObject {
     @Published var favoriteObjects = [Properties]()
     
-    private let favoriteObjectRepository: FavoriteObjectRepositoryProtocol
-    private let detailsRepository: DetailsRepositoryProtocol
-    
-    init(favoriteObjectRepository: FavoriteObjectRepositoryProtocol, detailsRepository: DetailsRepositoryProtocol) {
-        self.favoriteObjectRepository = favoriteObjectRepository
-        self.detailsRepository = detailsRepository
-    }
+    @Injected private var favoriteObjectRepository: FavoriteObjectRepositoryProtocol
+    @Injected private var detailsRepository: DetailsRepositoryProtocol
     
     func loadObjects() {
         favoriteObjects = favoriteObjectRepository.getAllObjects()

@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct TourAppApp: App {
-    let dependencies = ApplicationDependencies()
     
     var body: some Scene {
         WindowGroup {
-            TourTabView(viewModel: TourTabViewModel(viewModelFactory: dependencies.viewModelFactory))
+            TourTabView(viewModel: TourTabViewModel())
         }
     }
 }

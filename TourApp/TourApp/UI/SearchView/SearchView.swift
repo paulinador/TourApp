@@ -58,9 +58,7 @@ struct SearchView: View {
                 ForEach(viewModel.objectData, id: \.self) { item in
                     NavigationLink {
                         TourDetailView(viewModel: TourDetailViewModel(
-                            downloader: DetailsRepository(apiClient: DefaultAPIClient()),
                             xid: item.properties.xid,
-                            favoriteObjectRepository: FavoriteObjectRepository(),
                             properties: item.properties))
                     } label: {
                         VStack(alignment: .center) {

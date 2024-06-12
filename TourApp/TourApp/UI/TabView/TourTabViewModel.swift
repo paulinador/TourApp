@@ -6,17 +6,14 @@
 //
 
 import Foundation
+import Resolver
 
 enum TabState: Int, CaseIterable {
     case search, favorite
 }
 
 final class TourTabViewModel: ObservableObject {
-    let viewModelFactory: ViewModelFactoryProtocol
-    
-    init(viewModelFactory: ViewModelFactoryProtocol) {
-        self.viewModelFactory = viewModelFactory
-    }
+    @Injected var viewModelFactory: ViewModelFactoryProtocol
     
     @Published var selectedTab: TabState = .search
 }

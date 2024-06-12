@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Resolver
 
 final class SearchViewModel: ObservableObject {
     enum State {
@@ -31,13 +32,10 @@ final class SearchViewModel: ObservableObject {
 
     private var response: GeocodeResponse?
 
-    private let geocodeDownloader: GeocodeRepositoryProtocol
-    private let objectDownloader: ObjectRepositoryProtocol
+    @Injected private var geocodeDownloader: GeocodeRepositoryProtocol
+    @Injected private var objectDownloader: ObjectRepositoryProtocol
     
-    init(gdownloader: GeocodeRepositoryProtocol, odownloader: ObjectRepositoryProtocol) {
-        self.geocodeDownloader = gdownloader
-        self.objectDownloader = odownloader
-        
+    init() {
         Task {
             await fetchData()
         }

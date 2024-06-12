@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Resolver
 
 class TourDetailViewModel: ObservableObject {
     enum State {
@@ -26,14 +27,12 @@ class TourDetailViewModel: ObservableObject {
     
     @Published var xid: String
     
-    private let detailsDownloader: DetailsRepositoryProtocol
-    private let favoriteObjectRepository: FavoriteObjectRepositoryProtocol
+    @Injected private var detailsDownloader: DetailsRepositoryProtocol
+    @Injected private var favoriteObjectRepository: FavoriteObjectRepositoryProtocol
     private let properties: Properties
     
-    init(downloader: DetailsRepositoryProtocol, xid: String, favoriteObjectRepository: FavoriteObjectRepositoryProtocol, properties: Properties) {
-        self.detailsDownloader = downloader
+    init(xid: String, properties: Properties) {
         self.xid = xid
-        self.favoriteObjectRepository = favoriteObjectRepository
         self.properties = properties
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Resolver
 
 protocol ViewModelFactoryProtocol {
     func makeSearchViewModel() -> SearchViewModel
@@ -14,29 +15,21 @@ protocol ViewModelFactoryProtocol {
 }
 
 class ViewModelFactory: ViewModelFactoryProtocol {
-    private let geocodeRepository: GeocodeRepositoryProtocol
-    private let objectRepository: ObjectRepositoryProtocol
-    private let detailsRepository: DetailsRepositoryProtocol
-    private let favoritesRepository: FavoriteObjectRepositoryProtocol
-    
-    init(geocodeRepository: GeocodeRepositoryProtocol, objectRepository: ObjectRepositoryProtocol, detailsRepository: DetailsRepositoryProtocol, favoritesRepository: FavoriteObjectRepositoryProtocol) {
-        self.geocodeRepository = geocodeRepository
-        self.objectRepository = objectRepository
-        self.detailsRepository = detailsRepository
-        self.favoritesRepository = favoritesRepository
-
-    }
+    @Injected private var geocodeRepository: GeocodeRepositoryProtocol
+    @Injected private var objectRepository: ObjectRepositoryProtocol
+    @Injected private var detailsRepository: DetailsRepositoryProtocol
+    @Injected private var favoritesRepository: FavoriteObjectRepositoryProtocol
     
     func makeSearchViewModel() -> SearchViewModel {
-        SearchViewModel(gdownloader: geocodeRepository, odownloader: objectRepository)
+        SearchViewModel()
     }
     
     func makeTourDetailViewModel(properties: Properties, xid: String) -> TourDetailViewModel {
-        TourDetailViewModel(downloader: detailsRepository, xid: xid, favoriteObjectRepository: favoritesRepository, properties: properties)
+        TourDetailViewModel(xid: xid, properties: properties)
     }
     
     func makeFavoritesViewModel() -> FavoritesViewModel {
-        FavoritesViewModel(favoriteObjectRepository: favoritesRepository, detailsRepository: detailsRepository)
+        FavoritesViewModel()
     }
 }
 
