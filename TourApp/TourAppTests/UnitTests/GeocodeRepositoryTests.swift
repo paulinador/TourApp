@@ -8,6 +8,7 @@
 import Foundation
 import XCTest
 import Resolver
+import Networking
 @testable import TourApp
 
 final class GeocodeRepositoryTests: XCTestCase {

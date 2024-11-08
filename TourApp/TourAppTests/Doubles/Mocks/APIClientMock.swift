@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 @testable import TourApp
 
 
@@ -14,7 +15,7 @@ class APIClientMock: APIClient {
     var errorToReturn: Error?
     var objectToReturn: Codable?
     
-    func perform<T>(request: T) async throws -> T.ReturnType where T : TourApp.APIRequest {
+    func perform<T>(request: T) async throws -> T.ReturnType where T : Networking.APIRequest {
         capturedRequest = request
         if let errorToReturn {
             throw errorToReturn
