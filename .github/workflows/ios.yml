@@ -15,16 +15,12 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      # Krok 2: Budowanie projektu za pomocą xcodebuild
-      - name: Build the project
-        run: xcodebuild -project TourApp/TourApp.xcodeproj -scheme TourApp -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15' build
-
-      # Krok 3: Uruchamianie testów jednostkowych
+      # Krok 2: Uruchamianie testów jednostkowych
       - name: Run Unit Tests
-        run: xcodebuild -project TourApp/TourApp.xcodeproj -scheme TourApp -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15' test
+        run: xcodebuild -project TourApp/TourApp.xcodeproj -scheme TourApp -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15 Pro' test
 
-      # Krok 4: Pobieranie wyników testów
+      # Krok 3: Pobieranie wyników testów
       - name: Gather test results
         run: |
           set -o pipefail &&
-          xcodebuild -project TourApp/TourApp.xcodeproj -scheme TourApp -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15' test | xcpretty
+          xcodebuild -project TourApp/TourApp.xcodeproj -scheme TourApp -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15 Pro' test | xcpretty
