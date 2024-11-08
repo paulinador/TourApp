@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol APIClient {
+public protocol APIClient {
     func perform<T: APIRequest> (request: T) async throws -> T.ReturnType
 }

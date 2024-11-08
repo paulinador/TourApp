@@ -7,6 +7,7 @@
 
 import Foundation
 import Resolver
+import Networking
 
 protocol DetailsRepositoryProtocol {
     func getObjectDetails(xid: String) async throws -> DetailsResponse

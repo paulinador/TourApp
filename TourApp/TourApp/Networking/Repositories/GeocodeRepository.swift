@@ -7,6 +7,7 @@
 
 import Foundation
 import Resolver
+import Networking
 
 protocol GeocodeRepositoryProtocol {
     func getCurrentGeocode(cityName: String) async throws -> GeocodeResponse

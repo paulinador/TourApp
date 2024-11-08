@@ -6,6 +6,7 @@
 //
 
 import Resolver
+import Networking
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {

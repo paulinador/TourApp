@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 
 struct ObjectRequest: APIRequest {
     typealias ReturnType = ObjectResponse

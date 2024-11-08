@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 
 class DefaultAPIClient: APIClient {
     private let session: URLSession

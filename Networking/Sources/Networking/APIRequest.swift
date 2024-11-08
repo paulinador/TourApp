@@ -7,18 +7,18 @@
 
 import Foundation
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case get = "GET"
 }
 
-protocol APIRequest {
+public protocol APIRequest {
     associatedtype ReturnType: Codable
     var path: String { get }
     var queries: [URLQueryItem]? { get }
     var method: HTTPMethod { get }
 }
 
-extension APIRequest {
+public extension APIRequest {
     var method: HTTPMethod {
         .get
     }

@@ -24,15 +24,14 @@
 		7CC305F52C1995D700B10941 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 7CC305F42C1995D700B10941 /* Resolver */; };
 		7CC305F72C19969000B10941 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC305F62C19969000B10941 /* Resolver.swift */; };
 		7CC40D102C20AD6F00B1473C /* GeocodeRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC40D0F2C20AD6F00B1473C /* GeocodeRequestTests.swift */; };
+		7CC425982CB7D688003A457F /* DefaultAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC425972CB7D688003A457F /* DefaultAPIClient.swift */; };
+		7CC4259B2CB7D750003A457F /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 7CC4259A2CB7D750003A457F /* Networking */; };
 		7CC755982BBFEEB300C0C183 /* TourAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755972BBFEEB300C0C183 /* TourAppApp.swift */; };
 		7CC7559A2BBFEEB300C0C183 /* TourTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755992BBFEEB300C0C183 /* TourTabView.swift */; };
 		7CC7559C2BBFEEB500C0C183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC7559B2BBFEEB500C0C183 /* Assets.xcassets */; };
 		7CC7559F2BBFEEB500C0C183 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC7559E2BBFEEB500C0C183 /* Preview Assets.xcassets */; };
-		7CC755C32BBFF03600C0C183 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755C22BBFF03600C0C183 /* APIRequest.swift */; };
 		7CC755C52BBFF08700C0C183 /* GeocodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755C42BBFF08700C0C183 /* GeocodeRequest.swift */; };
 		7CC755C72BBFF09D00C0C183 /* GeocodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755C62BBFF09D00C0C183 /* GeocodeResponse.swift */; };
-		7CC755C92BBFF0CB00C0C183 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755C82BBFF0CB00C0C183 /* APIClient.swift */; };
-		7CC755CB2BBFF0DC00C0C183 /* DefaultAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755CA2BBFF0DC00C0C183 /* DefaultAPIClient.swift */; };
 		7CC755CD2BBFF11100C0C183 /* GeocodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755CC2BBFF11100C0C183 /* GeocodeRepository.swift */; };
 		7CC755CF2BBFF1FA00C0C183 /* ObjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755CE2BBFF1FA00C0C183 /* ObjectResponse.swift */; };
 		7CC755D12BBFF22F00C0C183 /* ObjectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC755D02BBFF22F00C0C183 /* ObjectRequest.swift */; };
@@ -77,17 +76,16 @@
 		7CB5AFF32C2AC737004676D4 /* SearchViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewSnapshotTests.swift; sourceTree = "<group>"; };
 		7CC305F62C19969000B10941 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		7CC40D0F2C20AD6F00B1473C /* GeocodeRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeRequestTests.swift; sourceTree = "<group>"; };
+		7CC425962CB7D5D1003A457F /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Networking; path = ../Networking; sourceTree = "<group>"; };
+		7CC425972CB7D688003A457F /* DefaultAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPIClient.swift; sourceTree = "<group>"; };
 		7CC755942BBFEEB300C0C183 /* TourApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC755972BBFEEB300C0C183 /* TourAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourAppApp.swift; sourceTree = "<group>"; };
 		7CC755992BBFEEB300C0C183 /* TourTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTabView.swift; sourceTree = "<group>"; };
 		7CC7559B2BBFEEB500C0C183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CC7559E2BBFEEB500C0C183 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7CC755A42BBFEEB500C0C183 /* TourAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TourAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CC755C22BBFF03600C0C183 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		7CC755C42BBFF08700C0C183 /* GeocodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeRequest.swift; sourceTree = "<group>"; };
 		7CC755C62BBFF09D00C0C183 /* GeocodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeResponse.swift; sourceTree = "<group>"; };
-		7CC755C82BBFF0CB00C0C183 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		7CC755CA2BBFF0DC00C0C183 /* DefaultAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAPIClient.swift; sourceTree = "<group>"; };
 		7CC755CC2BBFF11100C0C183 /* GeocodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeRepository.swift; sourceTree = "<group>"; };
 		7CC755CE2BBFF1FA00C0C183 /* ObjectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectResponse.swift; sourceTree = "<group>"; };
 		7CC755D02BBFF22F00C0C183 /* ObjectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRequest.swift; sourceTree = "<group>"; };
@@ -111,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC4259B2CB7D750003A457F /* Networking in Frameworks */,
 				7CC305F52C1995D700B10941 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,10 +208,16 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		7CC425992CB7D750003A457F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7CC4385C2BFB2F8B004BA2F9 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				7CC755C22BBFF03600C0C183 /* APIRequest.swift */,
 				7CC755C42BBFF08700C0C183 /* GeocodeRequest.swift */,
 				7CC755D02BBFF22F00C0C183 /* ObjectRequest.swift */,
 				7CC755D62BBFF4D500C0C183 /* DetailsRequest.swift */,
@@ -223,8 +228,7 @@
 		7CC4385D2BFB2FA9004BA2F9 /* APIClients */ = {
 			isa = PBXGroup;
 			children = (
-				7CC755C82BBFF0CB00C0C183 /* APIClient.swift */,
-				7CC755CA2BBFF0DC00C0C183 /* DefaultAPIClient.swift */,
+				7CC425972CB7D688003A457F /* DefaultAPIClient.swift */,
 			);
 			path = APIClients;
 			sourceTree = "<group>";
@@ -243,10 +247,12 @@
 		7CC7558B2BBFEEB300C0C183 = {
 			isa = PBXGroup;
 			children = (
+				7CC425962CB7D5D1003A457F /* Networking */,
 				7CC755962BBFEEB300C0C183 /* TourApp */,
 				7CC7559B2BBFEEB500C0C183 /* Assets.xcassets */,
 				7CC755A72BBFEEB500C0C183 /* TourAppTests */,
 				7CC755952BBFEEB300C0C183 /* Products */,
+				7CC425992CB7D750003A457F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -376,6 +382,7 @@
 			name = TourApp;
 			packageProductDependencies = (
 				7CC305F42C1995D700B10941 /* Resolver */,
+				7CC4259A2CB7D750003A457F /* Networking */,
 			);
 			productName = TourApp;
 			productReference = 7CC755942BBFEEB300C0C183 /* TourApp.app */;
@@ -475,7 +482,7 @@
 				7CB52B3A2C073E1F00C3384D /* ViewModelFactory.swift in Sources */,
 				7CC7559A2BBFEEB300C0C183 /* TourTabView.swift in Sources */,
 				7CC755D92BBFF5F100C0C183 /* DetailsRepository.swift in Sources */,
-				7CC755C32BBFF03600C0C183 /* APIRequest.swift in Sources */,
+				7CC425982CB7D688003A457F /* DefaultAPIClient.swift in Sources */,
 				7CC755D32BBFF25700C0C183 /* ObjectRepository.swift in Sources */,
 				7CC9119D2BC3E6D8009053A6 /* TourDetailView.swift in Sources */,
 				7CC755C52BBFF08700C0C183 /* GeocodeRequest.swift in Sources */,
@@ -486,14 +493,12 @@
 				7CC755D72BBFF4D500C0C183 /* DetailsRequest.swift in Sources */,
 				7CC755982BBFEEB300C0C183 /* TourAppApp.swift in Sources */,
 				7CC755CF2BBFF1FA00C0C183 /* ObjectResponse.swift in Sources */,
-				7CC755C92BBFF0CB00C0C183 /* APIClient.swift in Sources */,
 				7CC911A32BC3E732009053A6 /* FavoritesViewModel.swift in Sources */,
 				7CC911992BC3E693009053A6 /* SearchView.swift in Sources */,
 				7CC911AA2BC6A5D4009053A6 /* FavoriteObjectRepository.swift in Sources */,
 				7CC755D12BBFF22F00C0C183 /* ObjectRequest.swift in Sources */,
 				7CC9119B2BC3E69D009053A6 /* SearchViewModel.swift in Sources */,
 				7CC911922BC3E574009053A6 /* TourTabViewModel.swift in Sources */,
-				7CC755CB2BBFF0DC00C0C183 /* DefaultAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,6 +806,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CC305F32C1995D700B10941 /* XCRemoteSwiftPackageReference "Resolver" */;
 			productName = Resolver;
+		};
+		7CC4259A2CB7D750003A457F /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

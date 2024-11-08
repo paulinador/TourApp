@@ -7,6 +7,7 @@
 
 import Foundation
 import Resolver
+import Networking
 
 protocol ObjectRepositoryProtocol {
     func getAllObjects(longitude: Double, latitude: Double) async throws -> [Feature]
