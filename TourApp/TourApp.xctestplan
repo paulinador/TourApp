@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "A866687B-B4CE-4FC2-B9BB-F01C8B63CC28",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TourApp.xcodeproj",
+      "identifier" : "7CC755932BBFEEB300C0C183",
+      "name" : "TourApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/Networking",
+        "identifier" : "NetworkingTests",
+        "name" : "NetworkingTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:TourApp.xcodeproj",
+        "identifier" : "7CC755A32BBFEEB500C0C183",
+        "name" : "TourAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}

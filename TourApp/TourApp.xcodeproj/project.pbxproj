@@ -61,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C9637B52CDE3C4C008DBEF1 /* TourApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TourApp.xctestplan; sourceTree = "<group>"; };
 		7CAC3FD82C21954900557699 /* GeocodeRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeRepositoryTests.swift; sourceTree = "<group>"; };
 		7CAC3FDC2C21978700557699 /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
 		7CAC3FDE2C219A9C00557699 /* GeocodeResponseBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeResponseBuilder.swift; sourceTree = "<group>"; };
@@ -247,6 +248,7 @@
 		7CC7558B2BBFEEB300C0C183 = {
 			isa = PBXGroup;
 			children = (
+				7C9637B52CDE3C4C008DBEF1 /* TourApp.xctestplan */,
 				7CC425962CB7D5D1003A457F /* Networking */,
 				7CC755962BBFEEB300C0C183 /* TourApp */,
 				7CC7559B2BBFEEB500C0C183 /* Assets.xcassets */,
